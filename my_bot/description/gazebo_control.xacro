@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<robot name="my_bot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <gazebo>
+        <plugin name="diff_drive" filename="libgazebo_ros_diff_drive.so">
+
+            <!-- Required ROS tag for Jazzy to avoid warnings -->
+            <ros>
+                <namespace>/</namespace>
+            </ros>
+
+            <!-- Wheel joints -->
+            <left_joint>left_wheel_joint</left_joint>
+            <right_joint>right_wheel_joint</right_joint>
+
+            <!-- Wheel geometry -->
+            <wheel_separation>0.20</wheel_separation>
+            <wheel_diameter>0.06</wheel_diameter>
+
+            <!-- Control settings -->
+            <!-- Deprecated params removed (max torque, acceleration) -->
+            <command_topic>cmd_vel</command_topic>
+            <odometry_topic>odom</odometry_topic>
+
+            <!-- Odometry frames -->
+            <odometry_frame>odom</odometry_frame>
+            <robot_base_frame>base_link</robot_base_frame>
+
+            <!-- Output settings -->
+            <publish_tf>true</publish_tf>
+            <publish_odom>true</publish_odom>
+            <publish_odom_tf>true</publish_odom_tf>
+
+            <!-- Wheel velocity limit -->
+            <robot_speed_multiplier>1.0</robot_speed_multiplier>
+
+        </plugin>
+    </gazebo>
+
+</robot>
